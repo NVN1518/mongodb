@@ -1,0 +1,24 @@
+"C:\Program Files\MongoDB\Server\4.4\bin\mongo.exe"
+
+
+
+
+show dbs                kitne database bnaye gye h sysytem m use dekhne  k liye
+
+use name                database usi naam ka create krne k liye(jb tk aap data ni dalenge tb tk ye show ni krega database)
+
+db.name.insertOne()     data insert krne k liye(be consitant with naming)
+
+db.name.find().pretty()          show krega data
+
+db.studentData.deleteOne({name:"Naveen"})    delete krene k liye
+
+db.studentsData.updateOne({"isVerified":true},{$set: {"fbloggedin":true}})    update krne  k liye
+
+db.studentsData.updateMany({"isVerified":true},{$set: {"fbloggedin":true}})    ik sath do ya jitne b unique identity s select kiye gye documents h unko update kr dega
+
+db.studentData.deleteMany({Delete:"yes"})                                       ik sath delte kr dege jitni b same tarike ki unque identity h use
+
+db.studentData.deleteMany({})                                  agar ham ise khali  chor de to ye apne aap sb delete kr dega d
+
+db.studentData.find({courseCount:4}).pretty()                  isi ko dilhayega 
