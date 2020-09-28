@@ -21,4 +21,10 @@ db.studentData.deleteMany({Delete:"yes"})                                       
 
 db.studentData.deleteMany({})                                  agar ham ise khali  chor de to ye apne aap sb delete kr dega d
 
-db.studentData.find({courseCount:4}).pretty()                  isi ko dilhayega 
+db.studentData.findOne({courseCount:4}).pretty()                  isi ko dilhayega 
+
+
+db.studentData.find({courseCount:{$gt :1}})                       koi special condition k ssth find krna jese is case m find kra greater thean 1 wala
+
+
+find support pretty but findOne doesnt
