@@ -3,32 +3,48 @@
 
 
 
-show dbs                kitne database bnaye gye h sysytem m use dekhne  k liye
+show dbs               									    kitne database bnaye gye h sysytem m use dekhne  k liye
 
-use name                database usi naam ka create krne k liye(jb tk aap data ni dalenge tb tk ye show ni krega database)
+use name                								    database usi naam ka create krne k liye(jb tk aap data ni dalenge tb tk ye show ni krega database)
 
-db.name.insertOne()     data insert krne k liye(be consitant with naming)
+db.name.insertOne({})     								    data insert krne k liye(be consitant with naming)
 
-db.name.find().pretty()          show krega data
+db.name.insertMany({})
 
-db.studentData.deleteOne({name:"Naveen"})    delete krene k liye
+db.name.find().pretty()          							    show krega data
 
-db.studentsData.updateOne({"isVerified":true},{$set: {"fbloggedin":true}})    update krne  k liye
+db.studentData.deleteOne({name:"Naveen"})  						    delete krene k liye
 
-db.studentsData.updateMany({"isVerified":true},{$set: {"fbloggedin":true}})    ik sath do ya jitne b unique identity s select kiye gye documents h unko update kr dega
+db.studentsData.updateOne({"isVerified":true},{$set: {"fbloggedin":true}})   		    update krne  k liye
 
-db.studentData.deleteMany({Delete:"yes"})                                       ik sath delte kr dege jitni b same tarike ki unque identity h use
+db.studentsData.updateMany({"isVerified":true},{$set: {"fbloggedin":true}})   		    ik sath do ya jitne b unique identity s select kiye gye documents h unko update kr dega
 
-db.studentData.deleteMany({})                                  agar ham ise khali  chor de to ye apne aap sb delete kr dega d
+db.studentData.deleteMany({Delete:"yes"})                                                   ik sath delte kr dege jitni b same tarike ki unque identity h use
 
-db.studentData.findOne({courseCount:4}).pretty()                  isi ko dilhayega 
+db.studentData.deleteMany({})                                				    agar ham ise khali  chor de to ye apne aap sb delete kr dega d
 
+db.studentData.findOne({courseCount:4}).pretty()                 			    isi ko dilhayega 
+	
 
-db.studentData.find({courseCount:{$gt :1}})                       koi special condition k ssth find krna jese is case m find kra greater thean 1 wala
+db.studentData.find({courseCount:{$gt :1}})                       			    koi special condition k ssth find krna jese is case m find kra greater thean 1 wala
 
 
 find support pretty but findOne doesnt
 
-1. db.name.find().forEach()                                       agar bdi entries h database m to simple find.pretty pura ni dikhayega to hame har langyage k compatable  k liye for each ka use krenge jo ki ik looop ki tarah kaam kregi
+1. db.name.find().forEach()                                       			    agar bdi entries h database m to simple find.pretty pura ni dikhayega to hame har langyage k compatable  k liye for each ka use krenge jo ki ik looop ki tarah kaam kregi
 
        1.1  db.studentData.find().forEach((student)=>{printjson(student)}  
+	1.2  db.studentData.find().forEach((student)=> {printjson(student.email)})
+
+db.studentData.find({},{email:1,_id:0}) 	             first parameter  is condition and second is what data 
+    2.1  db.studentData.find({},{email:1,_id:0,name:0})      by defalut flag value is 0 and 0 means false (mat dikhao) or agar ham 1 kr denge to mtl dikhao
+
+
+
+db.studentdata.updateMany({},{$set:{profilepic:{small:"choti si",Medium:100,Large:1000}}})          ye ham use kr rhe h ye dekhne k liye ki kya ham kisi key k liye object value daal skte h kya and yes it is possible
+
+db.studentdata.find({"profilepic.Medium":100})                                                       search krne ka tarika h,agar ham koi ase value daalte h jis m space ya dot aaye to vo value hame "" k aander dalni hogi
+
+
+
+db.studentdata.findOne({name:"Hitesh"}).lastlogin                                                   sidha find krne k liye entry ko kyu ki array m dot notation kaam ni krta jese ki curley braces m kia tha
