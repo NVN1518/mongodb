@@ -28,3 +28,7 @@ db.studentData.find({courseCount:{$gt :1}})                       koi special co
 
 
 find support pretty but findOne doesnt
+
+1. db.name.find().forEach()                                       agar bdi entries h database m to simple find.pretty pura ni dikhayega to hame har langyage k compatable  k liye for each ka use krenge jo ki ik looop ki tarah kaam kregi
+
+       1.1  db.studentData.find().forEach((student)=>{printjson(student)}  
