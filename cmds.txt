@@ -48,3 +48,6 @@ db.studentdata.find({"profilepic.Medium":100})                                  
 
 
 db.studentdata.findOne({name:"Hitesh"}).lastlogin                                                   sidha find krne k liye entry ko kyu ki array m dot notation kaam ni krta jese ki curley braces m kia tha
+
+
+db.name.drop()                                                                                   document ko delete krne k liye
